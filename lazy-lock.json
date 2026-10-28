@@ -1,0 +1,14 @@
+{
+  "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
+  "conform.nvim": { "branch": "master", "commit": "016802de402556da54c36bd7359b441266b01cdd" },
+  "flash.nvim": { "branch": "main", "commit": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a" },
+  "fzf-lua": { "branch": "main", "commit": "5b88d6f0af7fcb41d4a8bb340bf70d7e3824ee9d" },
+  "gruvbox.nvim": { "branch": "main", "commit": "154eb5ff5b96d0641307113fa385eaf0d36d9796" },
+  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
+  "mini.icons": { "branch": "main", "commit": "eab3e692d796d78ea6ffc978d8a380ff26fcf4e3" },
+  "mini.surround": { "branch": "main", "commit": "5357f00aca51a3b43e7775901b1ad9699f8c2678" },
+  "nvim-lspconfig": { "branch": "master", "commit": "4feaba4d3980032b3f62f3ba5df4de27fdf59cfd" },
+  "nvim-treesitter": { "branch": "main", "commit": "a2f694478be07f89c2d03cc17858a8745a400c4b" },
+  "oil.nvim": { "branch": "master", "commit": "d3733d933833a0e59b813ecec99341527adf0c28" },
+  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
+}
