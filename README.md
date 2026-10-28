@@ -1,3 +1,6 @@
+# PanzerVim
+![Panzer Vim](asets/title_screen.png) 
+
 # My Neovim Configuration
 
 A minimal, fast, and highly personalized Neovim configuration built from scratch.

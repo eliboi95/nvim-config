@@ -5,8 +5,8 @@ local function show_startup()
 
   -- Original tank artwork, with its spacing preserved
   local tank = [[
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⣀⣀⣀⡀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀         ⣠⣴⠟⢿⣿⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                    ⣠⣴⠟⢿⣿⣿
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠀⠀⠀⠀⠀⣴⣶⠲⣶⢦⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠶⠋⠁⢈⣷⠾⠟⠉
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠐⣿⣶⣺⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠞⠋⠀⣠⡴⠞⠉⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⡏⡍⠉⢹⡞⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡴⠞⠋⠘⣿⣶⠶⠋⠁⠀⠀⠀⠀⠀⠀⠀
@@ -27,7 +27,15 @@ local function show_startup()
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠙⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ]]
 
-  local title = "P A N Z E R   V O R !"
+  -- Large PANZER VOR! title
+  local title = [[
+██████╗  █████╗ ███╗   ██╗███████╗███████╗██████╗     ██╗   ██╗ ██████╗ ██████╗ ██╗
+██╔══██╗██╔══██╗████╗  ██║╚══███╔╝██╔════╝██╔══██╗    ██║   ██║██╔═══██╗██╔══██╗██║
+██████╔╝███████║██╔██╗ ██║  ███╔╝ █████╗  ██████╔╝    ██║   ██║██║   ██║██████╔╝██║
+██╔═══╝ ██╔══██║██║╚██╗██║ ███╔╝  ██╔══╝  ██╔══██╗    ╚██╗ ██╔╝██║   ██║██╔══██╗╚═╝
+██║     ██║  ██║██║ ╚████║███████╗███████╗██║  ██║     ╚████╔╝ ╚██████╔╝██║  ██║██╗
+╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝  ╚═╝      ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚═╝
+]]
 
   local footer = {
     "Welcome back, commander.",
@@ -44,8 +52,18 @@ local function show_startup()
   local win = vim.api.nvim_get_current_win()
   local ns = vim.api.nvim_create_namespace("panzer_startup")
 
-  -- Convert Unicode blank cells to ordinary spaces,
-  -- without changing their positions
+  -- Prepare the multiline ASCII title
+  local title_lines = vim.split(title, "\n", { plain = true })
+
+  while #title_lines > 0 and title_lines[1]:match("^%s*$") do
+    table.remove(title_lines, 1)
+  end
+
+  while #title_lines > 0 and title_lines[#title_lines]:match("^%s*$") do
+    table.remove(title_lines)
+  end
+
+  -- Convert Unicode blank cells to ordinary spaces
   local raw_lines = vim.split(tank:gsub("⠀", " "), "\n", { plain = true })
 
   -- Remove only completely blank rows around the artwork
@@ -81,7 +99,7 @@ local function show_startup()
   vim.wo[win].cursorline = false
   vim.wo[win].scrolloff = 0
 
-  -- Gruvbox colors
+  -- Original Gruvbox colors (unchanged)
   vim.api.nvim_set_hl(0, "PanzerTitle", {
     fg = "#fabd2f",
     bold = true,
@@ -112,13 +130,19 @@ local function show_startup()
       return string.rep(" ", padding) .. line
     end
 
-    -- Center the whole tank, preserving every row's position
+    -- Center the whole tank, preserving each row's position
     local left = math.max(0, math.floor((width - tank_width) / 2))
 
-    local content = {
-      center(title),
-      "",
-    }
+    local content = {}
+
+    -- Multiline title: center each row separately
+    for _, line in ipairs(title_lines) do
+      table.insert(content, center(line))
+    end
+
+    table.insert(content, "")
+
+    local tank_start_in_content = #content
 
     for _, line in ipairs(tank_lines) do
       table.insert(content, string.rep(" ", left) .. line)
@@ -148,14 +172,19 @@ local function show_startup()
     -- Highlights
     vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
 
-    vim.api.nvim_buf_add_highlight(buf, ns, "PanzerTitle", top, 0, -1)
+    -- Highlight all title rows
+    for row = top, top + #title_lines - 1 do
+      vim.api.nvim_buf_add_highlight(buf, ns, "PanzerTitle", row, 0, -1)
+    end
 
-    local tank_start = top + 2
+    -- Highlight the tank
+    local tank_start = top + tank_start_in_content
 
     for row = tank_start, tank_start + #tank_lines - 1 do
       vim.api.nvim_buf_add_highlight(buf, ns, "PanzerTank", row, 0, -1)
     end
 
+    -- Highlight the footer
     local footer_start = tank_start + #tank_lines + 1
 
     for row = footer_start, #lines - 1 do
