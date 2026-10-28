@@ -65,6 +65,7 @@ return {
           ["@variable.parameter.python"] = { fg = "#8ec07c" },
 
           -- Values: warm beige
+          ["@constant.python"] = { fg = "#ebdbb2" },
           ["@number.python"] = { fg = "#ebdbb2" },
           ["@number.float.python"] = { fg = "#ebdbb2" },
           ["@boolean.python"] = { fg = "#ebdbb2" },
@@ -81,6 +82,11 @@ return {
 
           -- Return: stays red
           ["@keyword.return.python"] = { fg = "#fb4934" },
+
+          -- Fuctions: non bold
+          ["@function.call.python"] = { fg = "#b8bb26" },
+          ["@function.python"] = { fg = "#b8bb26", bold = false },
+          ["@function.method.call.python"] = { fg = "#b8bb26", bold = false },
         },
       })
 
