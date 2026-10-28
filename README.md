@@ -1,8 +1,3 @@
-## Screenshot
-
-![My Neovim setup](assets/nvim.png)
-
-
 # My Neovim Configuration
 
 A minimal, fast, and highly personalized Neovim configuration built from scratch.
