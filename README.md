@@ -1,5 +1,5 @@
 # PanzerVim
-![Panzer Vim](asets/title_screen.png) 
+![Panzer Vim](assets/title_screen.png) 
 
 # My Neovim Configuration
 
